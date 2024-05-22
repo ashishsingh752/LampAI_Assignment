@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const CircleProgress = ({ title, percentage, color }) => {
   const radius = 30;
@@ -37,15 +37,21 @@ const CircleProgress = ({ title, percentage, color }) => {
 
 const ProgressCard = ({ title, percentage, color, focusedArea, badges }) => {
   return (
-    <div className="w-auto h-80 md:w-64 rounded-lg bg-white shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+    <div className="w-auto h-80 md:w-64 rounded-lg bg-white shadow-lg p-6 hover:shadow-lg transition-shadow duration-300">
       <CircleProgress title={title} percentage={percentage} color={color} />
-      <div className="flex justify-between mt-6">
-        <span className="text-sm text-gray-600 font-semibold">Focused Area</span>
-        <span className="text-sm text-gray-600 font-semibold">{focusedArea}</span>
+      <div className="flex mt-6">
+        <span className="text-sm text-gray-600 font-semibold">
+          Focused Area
+        </span>
+        <span className="text-sm text-gray-600 font-semibold">
+          {focusedArea}
+        </span>
       </div>
       {badges && (
         <div className="flex items-center mt-4">
-          <span className="text-sm text-gray-600 font-semibold mr-2">Badges:</span>
+          <span className="text-sm text-gray-600 font-semibold mr-2">
+            Badges:
+          </span>
           {badges.map((badge, index) => (
             <span
               key={index}
@@ -60,26 +66,26 @@ const ProgressCard = ({ title, percentage, color, focusedArea, badges }) => {
   );
 };
 
-const HomePage = () => {
+const Progress = () => {
   const progressData = [
     {
-      title: 'Questions Solved',
+      title: "Questions Solved",
       percentage: 63,
-      color: 'text-blue-500',
-      focusedArea: 'Machine Learning',
-      badges: ['Bronze', 'Silver'],
+      color: "text-blue-500",
+      focusedArea: "Machine Learning",
+      badges: ["Bronze", "Silver"],
     },
     {
-      title: 'Assessment Taken',
+      title: "Assessment Taken",
       percentage: 67,
-      color: 'text-green-500',
-      focusedArea: 'Web Development',
-      badges: ['Participation'],
+      color: "text-green-500",
+      focusedArea: "Web Development",
+      badges: ["Participation"],
     },
   ];
 
   return (
-    <div className="flex sticky p-7 md:flex-wrap  gap-4 mt-16">
+    <div className="flex justify-center  gap-3 mt-16">
       {progressData.map((data, index) => (
         <ProgressCard key={index} {...data} />
       ))}
@@ -87,4 +93,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Progress;

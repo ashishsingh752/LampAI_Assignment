@@ -15,29 +15,29 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import Logo from "./Logo";  // Adjust the import path according to your project structure
 
-function Logo({ content, icon }) {
-  return (
-    <div className="flex items-center gap-4 p-2 pl-10 bg-yellow-200 hover:bg-yellow-300 transition-colors duration-200">
-      <div className="text-xl">{icon}</div>
-      <div className="font-semibold">{content}</div>
-    </div>
-  );
+interface SidebarProps {
+  isOpen: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: (event: React.MouseEvent) => void;
 }
 
-export default function Sidebar({ isOpen, onMouseEnter, onMouseLeave }) {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMouseEnter, onMouseLeave }) => {
   return (
     <div
-      className={`fixed top-16  h-[calc(100vh-4rem)] bg-white shadow-lg rounded-lg transition-transform duration-300 ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+      id="sidebar"
+      className={`fixed top-16 h-[calc(100vh-4rem)] bg-white shadow-lg rounded-lg transition-transform duration-300 ${
+        isOpen
+          ? "translate-x-0 overflow-y-scroll scrollbar-none"
+          : "-translate-x-full"
       }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      style={{ width: '16rem' }}
+      style={{ width: "16rem" }}
     >
-      <div >
-        <Logo/>
-        <Logo  content="Home"  icon={<FaHome />} />
+      <div>
+        <Logo content="Home" icon={<FaHome />} />
         <Logo content="Explore" icon={<FaUser />} />
         <Logo content="Learn" icon={<FaBook />} />
         <Logo content="Achieve" icon={<FaTrophy />} />
@@ -48,7 +48,7 @@ export default function Sidebar({ isOpen, onMouseEnter, onMouseLeave }) {
         <Logo content="Blog" icon={<FaPen />} />
         <Logo content="Community" icon={<FaUsers />} />
       </div>
-      <div className="mt-10 bg-slate-200 p-4 rounded-lg">
+      <div className="mt-16 bg-slate-200 p-4 rounded-lg">
         <h3 className="text-center font-semibold">Connect With Us</h3>
         <div className="flex justify-around mt-4 text-2xl">
           <FaWhatsapp className="hover:text-green-600 transition-colors duration-200" />
@@ -59,4 +59,6 @@ export default function Sidebar({ isOpen, onMouseEnter, onMouseLeave }) {
       </div>
     </div>
   );
-}
+};
+
+export default Sidebar;
