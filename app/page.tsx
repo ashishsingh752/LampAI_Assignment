@@ -5,10 +5,10 @@ import Progress from "./components/Progress";
 export default function page() {
   return (
     <div>
-      <div className="flex justify-between ">
+      <div className="flex gap-14 ">
         {/* <Sidebar /> */}
         <Home />
-        {/* <Progress/> */}
+        <Progress/>
       </div>
     </div>
   );

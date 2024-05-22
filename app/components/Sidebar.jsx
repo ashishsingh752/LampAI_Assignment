@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FaHome,
   FaUser,
@@ -14,11 +14,11 @@ import {
   FaFacebook,
   FaInstagram,
   FaTwitter,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
 function Logo({ content, icon }) {
   return (
-    <div className="flex items-center gap-4 p-4 pl-10 bg-yellow-200 hover:bg-yellow-300 transition-colors duration-200">
+    <div className="flex items-center gap-4 p-2 pl-10 bg-yellow-200 hover:bg-yellow-300 transition-colors duration-200">
       <div className="text-xl">{icon}</div>
       <div className="font-semibold">{content}</div>
     </div>
@@ -28,17 +28,16 @@ function Logo({ content, icon }) {
 export default function Sidebar({ isOpen, onMouseEnter, onMouseLeave }) {
   return (
     <div
-      className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg rounded-lg transform transition-transform duration-300 ${
-        isOpen ? 'translate-x-0' : '-translate-x-full'
+      className={`fixed top-16  h-[calc(100vh-4rem)] bg-white shadow-lg rounded-lg transition-transform duration-300 ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={{ width: '16rem' }}
     >
-      {/* <div className="flex items-center justify-between p-4 bg-gray-200">
-        <h2 className="text-xl font-bold">Menu</h2>
-      </div> */}
-      <div className="mt-16">
-        <Logo content="Home" icon={<FaHome />} />
+      <div >
+        <Logo/>
+        <Logo  content="Home"  icon={<FaHome />} />
         <Logo content="Explore" icon={<FaUser />} />
         <Logo content="Learn" icon={<FaBook />} />
         <Logo content="Achieve" icon={<FaTrophy />} />
@@ -49,7 +48,7 @@ export default function Sidebar({ isOpen, onMouseEnter, onMouseLeave }) {
         <Logo content="Blog" icon={<FaPen />} />
         <Logo content="Community" icon={<FaUsers />} />
       </div>
-      <div className="mt-16 bg-slate-200 p-4 rounded-lg">
+      <div className="mt-10 bg-slate-200 p-4 rounded-lg">
         <h3 className="text-center font-semibold">Connect With Us</h3>
         <div className="flex justify-around mt-4 text-2xl">
           <FaWhatsapp className="hover:text-green-600 transition-colors duration-200" />
