@@ -28,7 +28,7 @@ const Progress: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center gap-3 mt-16">
+    <div className="flex justify-around gap-24 mt-12">
       {progressData.map((data, index) => (
         <ProgressCard key={index} {...data} />
       ))}

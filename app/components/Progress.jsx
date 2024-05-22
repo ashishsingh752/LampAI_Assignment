@@ -85,7 +85,7 @@ const Progress = () => {
   ];
 
   return (
-    <div className="flex justify-center  gap-3 mt-16">
+    <div className="flex   gap-5 mt-16">
       {progressData.map((data, index) => (
         <ProgressCard key={index} {...data} />
       ))}
