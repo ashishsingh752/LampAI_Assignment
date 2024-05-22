@@ -7,7 +7,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ content, icon }) => {
   return (
-    <div className="flex items-center gap-4 p-4 pl-10 bg-yellow-200 hover:bg-yellow-300 transition-colors duration-200 ">
+    <div className="flex items-center gap-4 p-4 pl-10 bg-white hover:bg-gray-300 transition-colors duration-200 ">
       <div className="text-xl">{icon}</div>
       <div className="font-semibold">{content}</div>
     </div>

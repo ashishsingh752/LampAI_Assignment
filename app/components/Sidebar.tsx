@@ -36,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMouseEnter, onMouseLeave })
       onMouseLeave={onMouseLeave}
       style={{ width: "16rem" }}
     >
-      <div>
+      <div className="cursor-pointer">
         <Logo content="Home" icon={<FaHome />} />
         <Logo content="Explore" icon={<FaUser />} />
         <Logo content="Learn" icon={<FaBook />} />
@@ -50,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMouseEnter, onMouseLeave })
       </div>
       <div className="mt-16 bg-slate-200 p-4 rounded-lg">
         <h3 className="text-center font-semibold">Connect With Us</h3>
-        <div className="flex justify-around mt-4 text-2xl">
+        <div className="flex cursor-pointer justify-around mt-4 text-2xl">
           <FaWhatsapp className="hover:text-green-600 transition-colors duration-200" />
           <FaFacebook className="hover:text-blue-600 transition-colors duration-200" />
           <FaInstagram className="hover:text-pink-500 transition-colors duration-200" />
