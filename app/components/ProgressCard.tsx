@@ -18,7 +18,7 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ title, percentage, color, f
         <span className="text-sm text-gray-600 font-semibold">{focusedArea}</span>
       </div>
       {badges && (
-        <div className="flex items-center mt-4">
+        <div className="flex  items-center mt-4">
           <span className="text-sm text-gray-600 font-semibold mr-2">Badges:</span>
           {badges.map((badge, index) => (
             <span

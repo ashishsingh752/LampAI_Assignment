@@ -55,7 +55,7 @@ export default function Page() {
         >
           <div className="grid grid-cols-1 md:flex-wrap gap-5 lg:grid-cols-2 p-6">
             <Home />
-            <div className="scroll flex pl-6 pr-6 flex-wrap justify-center lg:block lg:fixed lg:top-2 lg:right-14">
+            <div className="scroll flex pl-6 pr-6 flex-wrap justify-center lg:block  lg:top-2 lg:right-20">
               <div>
                 <Progress />
               </div>
