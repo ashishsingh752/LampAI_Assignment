@@ -15,7 +15,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import Logo from "./Logo";  // Adjust the import path according to your project structure
+import Logo from "./Logo";  
 
 interface SidebarProps {
   isOpen: boolean;
@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMouseEnter, onMouseLeave })
   return (
     <div
       id="sidebar"
-      className={`fixed top-16 h-[calc(100vh-4rem)] bg-white shadow-lg rounded-lg transition-transform duration-300 ${
+      className={`fixed top-16 h-[calc(100vh-5rem)] bg-white shadow-lg rounded-lg transition-transform duration-300 ${
         isOpen
           ? "translate-x-0 overflow-y-scroll scrollbar-none"
           : "-translate-x-full"
@@ -44,11 +44,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMouseEnter, onMouseLeave })
         <Logo content="Practice" icon={<FaLightbulb />} />
         <Logo content="Project" icon={<FaProjectDiagram />} />
         <Logo content="Career" icon={<FaBriefcase />} />
-        <Logo content="Mentorship" icon={<FaHandshake />} />
-        <Logo content="Blog" icon={<FaPen />} />
+        {/* <Logo content="Mentorship" icon={<FaHandshake />} />
+        <Logo content="Blog" icon={<FaPen />} /> */}
         <Logo content="Community" icon={<FaUsers />} />
       </div>
-      <div className="mt-16 bg-slate-200 p-4 rounded-lg">
+      <div className="mt-2 bg-slate-200 p-4 rounded-lg">
         <h3 className="text-center font-semibold">Connect With Us</h3>
         <div className="flex cursor-pointer justify-around mt-4 text-2xl">
           <FaWhatsapp className="hover:text-green-600 transition-colors duration-200" />

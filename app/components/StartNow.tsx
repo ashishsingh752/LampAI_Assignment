@@ -1,4 +1,3 @@
-// pages/index.tsx
 import React from 'react';
 import StartNowCard from './StartNowCard';
 import { FaCode, FaLaptopCode, FaClipboardCheck, FaGamepad } from 'react-icons/fa';
@@ -10,7 +9,7 @@ const StartNow: React.FC = () => {
 
   return (
     <div className="h-auto w-full flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full m-4">
+      <div className="bg-white p-3 rounded-sm shadow-lg w-full m-4">
         <StartNowCard
           icon={<FaCode />}
           title="Coding Problems"

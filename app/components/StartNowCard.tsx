@@ -10,16 +10,16 @@ interface StartNowCardProps {
 
 const StartNowCard: React.FC<StartNowCardProps> = ({ icon, title, onClick }) => {
   return (
-    <div className="flex items-center justify-between p-4 bg-purple-100 rounded-lg mb-4">
+    <div className="flex items-center overflow-auto justify-between p-4 bg-purple-100 rounded-lg mb-4">
       <div className="flex items-center">
-        <div className="p-2 bg-purple-500 text-white rounded-full">
+        <div className="p-2 hidden sm:block  bg-purple-500 text-white rounded-full">
           {icon}
         </div>
-        <span className="ml-4 font-medium text-purple-900">{title}</span>
+        <span className="ml-4 text-sm md:text-lg font-medium text-purple-900">{title}</span>
       </div>
       <button
         onClick={onClick}
-        className="px-4 py-2 border border-purple-500 text-purple-500 rounded-full hover:bg-purple-500 hover:text-white transition"
+        className="p-5  py-1 text-sm md:text-lg border border-purple-500 text-purple-500 rounded-full hover:bg-purple-500 hover:text-white transition"
       >
         Start Now
       </button>

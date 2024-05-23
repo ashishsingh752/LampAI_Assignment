@@ -11,9 +11,9 @@ interface ProgressCardProps {
 
 const ProgressCard: React.FC<ProgressCardProps> = ({ title, percentage, color, focusedArea, badges }) => {
   return (
-    <div className="w-auto h-80 md:w-64 rounded-lg bg-white shadow-lg p-6 hover:shadow-lg transition-shadow duration-300">
+    <div className="w-auto h-80 md:w-96 rounded-lg bg-white shadow-lg p-6 hover:shadow-lg transition-shadow duration-300">
       <CircleProgress title={title} percentage={percentage} color={color} />
-      <div className="flex mt-6">
+      <div className="flex justify-between mt-6">
         <span className="text-sm text-gray-600 font-semibold">Focused Area</span>
         <span className="text-sm text-gray-600 font-semibold">{focusedArea}</span>
       </div>

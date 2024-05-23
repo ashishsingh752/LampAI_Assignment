@@ -112,7 +112,7 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className="p-6  rounded-lg shadow-lg bg-white w-96 md:w-full   max-w-2xl mx-auto mt-10">
+    <div className="p-6  rounded-lg shadow-lg bg-white w-auto md:w-full  max-w-2xl mx-auto ">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <select

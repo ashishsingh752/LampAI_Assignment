@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, MouseEvent } from "react";
-import { FaSearch, FaChevronRight } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import StartNow from "./StartNow";
+import AssessmentCard from "./AssessmentCard";
 
 interface Assessment {
   id: number;
@@ -53,35 +54,32 @@ const assessments: Assessment[] = [
       "https://via.placeholder.com/150/FF0000/808080?text=Financial+Analysis",
     bgColor: "bg-red-500",
   },
-
-  // Add more assessments as needed
 ];
 
-type AssessmentCardProps = {
-  title: string;
-  image: string;
-  bgColor: string;
-};
-
-const AssessmentCard: React.FC<AssessmentCardProps> = ({
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
-  image,
-  bgColor,
+  children,
 }) => (
-  <div className={`w-44 rounded-lg shadow-lg overflow-hidden ${bgColor}`}>
-    <img src={image} alt={title} className="w-full h-40 object-cover" />
-    <div className="p-4 bg-white">
-      <h3 className="text-lg font-bold text-gray-800">{title}</h3>
-    </div>
+  <div className="p-6">
+    <h2 className="text-2xl font-bold mb-4">{title}</h2>
+    {children}
+  </div>
+);
+
+const ScrollableAssessments: React.FC = () => (
+  <div className="flex space-x-2 pl-2 bg-white overflow-hidden overflow-x-scroll">
+    {assessments.map((assessment) => (
+      <div key={assessment.id} className="gap-4 mt-3">
+        <AssessmentCard {...assessment} />
+      </div>
+    ))}
   </div>
 );
 
 const Home: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    setSidebarOpen(true);
-  };
+  const handleMouseEnter = () => setSidebarOpen(true);
 
   const handleMouseLeave = (e: MouseEvent) => {
     const sidebarElement = document.getElementById("sidebar");
@@ -93,7 +91,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex-1 p-6">
       <div className="p-6">
-        <h1 className="text-3xl font-bold mb-4">Let's Rock!</h1>
+        <h1 className="text-3xl font-bold mb-4">Let&apos;s Rock!</h1>
         <h2 className="text-xl font-semibold mb-6">
           Participate regularly to achieve perfection
         </h2>
@@ -107,59 +105,28 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* assessment card */}
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-4">Exclusive Assessments</h2>
-        <div className="flex space-x-2 p-4 bg-white overflow-hidden overflow-x-scroll">
-          {assessments.map((assessment) => (
-            <div key={assessment.id} className="gap-4 mt-3">
-              <AssessmentCard {...assessment} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Section title="Exclusive Assessments">
+        <ScrollableAssessments />
+      </Section>
 
-      {/* assessment card */}
-      <div className="p-6">
-        <div className="flex  items-center justify-between">
-          <h2 className="text-2xl font-bold mb-4">All Assessments</h2>
-          <h3 className="text-xl font-semibold mb-4"> See ALL </h3>
+      <Section title="All Assessments">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-semibold">See ALL</h3>
         </div>
-        <div className="flex scrollbar-none space-x-2 p-4 bg-white overflow-hidden overflow-x-scroll">
-          {assessments.map((assessment) => (
-            <div key={assessment.id} className="gap-4 mt-3">
-              <AssessmentCard {...assessment} />
-            </div>
-          ))}
-        </div>
-      </div>
+        <ScrollableAssessments />
+      </Section>
 
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-4">Practive Problems</h2>
+      <Section title="Practice Problems">
         <StartNow />
-      </div>
+      </Section>
 
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-4">Web Development Courses</h2>
-        <div className="flex scrollbar-none space-x-2 p-4 bg-white overflow-hidden overflow-x-scroll">
-          {assessments.map((assessment) => (
-            <div key={assessment.id} className="gap-4 mt-3">
-              <AssessmentCard {...assessment} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Section title="Web Development Courses">
+        <ScrollableAssessments />
+      </Section>
 
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-4">Placement Series</h2>
-        <div className="flex space-x-2 p-4 bg-white overflow-hidden overflow-x-scroll">
-          {assessments.map((assessment) => (
-            <div key={assessment.id} className="gap-4 mt-3">
-              <AssessmentCard {...assessment} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Section title="Placement Series">
+        <ScrollableAssessments />
+      </Section>
     </div>
   );
 };

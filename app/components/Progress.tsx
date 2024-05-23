@@ -1,6 +1,5 @@
 import React from "react";
-import ProgressCard from "./ProgressCard"; // Adjust the import path according to your project structure
-
+import ProgressCard from "./ProgressCard"; 
 interface ProgressData {
   title: string;
   percentage: number;
@@ -28,7 +27,7 @@ const Progress: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center gap-5 mt-12">
+    <div className="flex flex-wrap md:flex-nowrap  justify-center gap-5 mt-12">
       {progressData.map((data, index) => (
         <ProgressCard key={index} {...data} />
       ))}
